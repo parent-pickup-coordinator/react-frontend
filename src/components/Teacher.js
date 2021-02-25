@@ -19,7 +19,7 @@ const TeacherPage = (props) => {
   const [inClassStudents, setInClassStudents] = useState([]);
   // const [classRoster, setClassRoster] = useState([]);
   const teacherNameRef = React.createRef();
-  const host = io.connect('http://localhost:3001', { transports: ['websocket'] });
+  const host = io.connect('https://socket-server-ppc.herokuapp.com/', { transports: ['websocket'] });
   
   host.on('pickupready', (payload) => {
     console.log('this is the pickup on teacherPage, student:', payload.name);
