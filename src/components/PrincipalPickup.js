@@ -16,7 +16,7 @@ const PrincipalPickupPage = (props) => {
   const [releasedFromClassStudents, setReleasedFromClassStudents] = useState([]);
   const [chosenChild, setChosenChild] = useState({});
   const pickupIdRef = React.createRef();
-  const host = io.connect('http://localhost:3001', { transports: ['websocket'] });
+  const host = io.connect('https://socket-server-ppc.herokuapp.com/', { transports: ['websocket'] });
 
   host.on('sendingstudent', (payload) => {
     console.log('student is being sent out from teacher: ', payload.name, payload.teacher, payload.studentStatus);
