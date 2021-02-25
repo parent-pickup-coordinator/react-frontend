@@ -26,7 +26,7 @@ const TeacherPage = (props) => {
 
   // const host = io.connect('https://parent-pickup-coordinator.herokuapp.com/', { transports: ['websocket'] }); //USE THIS ONE FOR DEPLOYMENT
 
-  const host = io.connect('http://localhost:3001', { transports: ['websocket'] }); //USE THIS ONE FOR TESTING
+  const host = io.connect('https://socket-server-ppc.herokuapp.com/', { transports: ['websocket'] }); //USE THIS ONE FOR TESTING
 
 
   host.on('pickupready', (payload) => {
