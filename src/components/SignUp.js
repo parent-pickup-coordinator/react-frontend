@@ -64,13 +64,20 @@ function LinkTab(props) {
 
 
 
-export default function NavTabsSignup() {
+
+export default function NavTabsSignup(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const signIn = () => {
+    console.log('SIGNUP signIn')
+      props.history.push('/signin')
+  
+  }
 
   return (
     <div className={classes.root}>
@@ -151,6 +158,7 @@ export default function NavTabsSignup() {
                 </Grid>
               </Grid>
               <Button
+                 onClick={signIn}
                 type="submit"
                 fullWidth
                 variant="contained"
@@ -242,6 +250,7 @@ export default function NavTabsSignup() {
                 </Grid>
               </Grid>
               <Button
+                onClick={signIn}
                 type="submit"
                 fullWidth
                 variant="contained"
