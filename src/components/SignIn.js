@@ -20,7 +20,7 @@ import Container from '@material-ui/core/Container';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-
+  console.log('SIGNIN: value: ', value);
   return (
     <div
       role="tabpanel"
@@ -65,7 +65,7 @@ function LinkTab(props) {
 
 
 
-export default function NavTabs() {
+export default function NavTabs(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -75,6 +75,19 @@ export default function NavTabs() {
   // not working
   // const signUp = (props) => {
   //   props.history.push('/signup');
+
+  const signIn = () => {
+    console.log('SIGNIN signIn')
+    if(value === 1){
+      console.log('Going to principal page');
+      props.history.push('/teacher')
+    }
+    if(value === 0){
+      console.log('Going to principal page');
+      props.history.push('/principal')
+    }
+  
+  }
 
   return (
     <div className={classes.root}>
@@ -128,6 +141,7 @@ export default function NavTabs() {
                 label="Remember me"
               />
               <Button
+                onClick={signIn}
                 type="submit"
                 fullWidth
                 variant="contained"
@@ -195,6 +209,7 @@ export default function NavTabs() {
                 label="Remember me"
               />
               <Button
+                onClick={signIn}
                 type="submit"
                 fullWidth
                 variant="contained"

@@ -1,0 +1,38 @@
+
+
+body, html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+
+
+#card-image {
+  width: 450px;
+  height: 150px;
+  text-align: center;
+  position:relative;
+  top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: transparent;
+  border: transparent;
+  Button {
+    margin-top: 20px;
+    //  margin-right: 5px;
+    margin: 30px;
+    
+  }
+}
+
+#background-image{
+  height: 1200px;
+  background-position:  center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.9;
+}
