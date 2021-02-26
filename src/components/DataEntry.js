@@ -8,6 +8,8 @@ import { connect } from 'react-redux';
 import { populateStudents, updateStatus } from '../store/students-reducer.js';
 import Card from '@material-ui/core/Card';
 import { makeStyles } from '@material-ui/core/styles';
+import './DataEntry.scss';
+
 const mapDispatchToProps = { populateStudents, updateStatus };
 
 
@@ -213,11 +215,23 @@ const DataEntry = (props) => {
       {/* <Button onClick={getAll}>Get All Students</Button> */}
       <Card>
         <form>
-          <input type='text' ref={pickupIdRef} placeholder="Enter Student ID #" />
-          <Button className={classes.root} onClick={retrieve} type='button'>Retrieve Student Record</Button>
-          <Button className={classes.root} onClick={add} type='button'>Add Student Record</Button>
-          <Button className={classes.root} onClick={update} type='button'>Update Student Record</Button>
-          <Button className={classes.root} onClick={deleteChosen} type='button'>Delete Student Record</Button>
+          <div id="buttons">
+            <div>
+              <input id="dataStuff" type='text' ref={pickupIdRef} placeholder="Enter Student ID #" />
+            </div>
+            <div>
+              <Button id="dataStuff" className={classes.root} onClick={retrieve} type='button'>Retrieve Student Record</Button>
+            </div>
+            <div>
+              <Button id="dataStuff" className={classes.root} onClick={add} type='button'>Add Student Record</Button>
+            </div>
+            <div>
+              <Button id="dataStuff" className={classes.root} onClick={update} type='button'>Update Student Record</Button>
+            </div>
+            <div>
+              <Button id="dataStuff" className={classes.root} onClick={deleteChosen} type='button'>Delete Student Record</Button>
+            </div>
+          </div>
         </form>
         {/* <Button onClick={() => updateOneStudent('6021cb7e516cc7085e551726')}>Make Student Change</Button> */}
 
@@ -423,8 +437,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 3,
     boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .5)',
     color: 'white',
-    height: 45,
-    padding: '30px',
+    height: 40,
+    padding: '10px',
     margin: theme.spacing(1),
   },
 }));
