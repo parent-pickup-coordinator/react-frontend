@@ -5,9 +5,9 @@ import superagent from 'superagent';
 // import io from 'socket.io-client';
 import { connect } from 'react-redux';
 import { populateStudents } from '../store/students-reducer.js';
-import Chip from '@material-ui/core/Chip';
+// import Chip from '@material-ui/core/Chip';
 import Card from '@material-ui/core/Card';
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 
 const mapDispatchToProps = { populateStudents };
 
@@ -36,7 +36,7 @@ const PrincipalPage = (props) => {
 
     props.history.push('/principalPickup');
   }
-  const classes = useStyles();
+  // const classes = useStyles();
 
   useEffect(() => {
     // console.log('PRINCIPAL useEffect: ', 'props.state ', props.state, 'props.allStudents ', props.allStudents);
@@ -44,28 +44,32 @@ const PrincipalPage = (props) => {
 
   return (
     <>
-      <Card id="teacher-card" >
-        <Button className={classes.root} onClick={dataEntryHandler}>Student Records</Button>
-        <Button className={classes.root} onClick={startParentPickup}>Start Pickup</Button>
-      </Card>
+      <div id="background-image">
+        <div id="card-image" variant="outlined">
+          <div id="card-inset">
+            <button class="teacherButtons" id="button1" onClick={dataEntryHandler}>Student Records</button>
+            <button class="teacherButtons" id="button2" onClick={startParentPickup}>Start Student Pickup</button>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
 
 
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    background: 'linear-gradient(45deg, #2A3EB1 10%, #2C387E 90%)',
-    border: 0,
-    borderRadius: 3,
-    boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .5)',
-    color: 'white',
-    height: 45,
-    padding: '30px',
-    margin: theme.spacing(1),
-  },
-}));
+// className={classes.root}
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     background: 'linear-gradient(45deg, #2A3EB1 10%, #2C387E 90%)',
+//     border: 0,
+//     borderRadius: 3,
+//     boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .5)',
+//     color: 'white',
+//     height: 45,
+//     padding: '30px',
+//     margin: theme.spacing(1),
+//   },
+// }));
 
 const mapStateToProps = state => ({
   state,

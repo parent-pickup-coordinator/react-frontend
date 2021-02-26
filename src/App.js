@@ -10,6 +10,8 @@ import PrincipalPickup from './components/PrincipalPickup';
 import AddStudent from './components/AddStudent';
 import DeleteStudent from './components/DeleteStudent';
 import Header from './components/Header';
+import Footer from './components/Footer';
+
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
       <Route path='/add' component={AddStudent} exact />
       <Route path='/delete' component={DeleteStudent} exact />
     </Switch>
+    <Footer/>
     </>
   );
 }

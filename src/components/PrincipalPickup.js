@@ -224,7 +224,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .5)',
     color: 'white',
     height: 20,
-    padding: '30px',
+    padding: '22px',
     margin: theme.spacing(1),
   },
 }));
