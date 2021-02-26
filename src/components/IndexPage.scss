@@ -1,18 +1,13 @@
-
-
 body, html {
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   margin: 0;
   margin-left: auto;
   margin-right: auto;
-
 }
-
-
-
 #card-image {
-  width: 450px;
+  // width: 450px;
+  
   height: 150px;
   text-align: center;
   position:relative;
@@ -21,18 +16,39 @@ body, html {
   margin-right: auto;
   background-color: transparent;
   border: transparent;
-  Button {
-    margin-top: 20px;
-    //  margin-right: 5px;
-    margin: 30px;
-    
-  }
 }
-
 #background-image{
-  height: 1200px;
+  height: 88vh;
   background-position:  center;
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 0.9;
+}
+#card-inset{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#button2, #button1{
+  width: 40vw;
+  margin: 20px;
+  line-height: 40px;
+  font-size: 20px;
+  background: linear-gradient(45deg, #2A3EB1 10%, #2C387E 90%);
+  border: 0;
+  border-radius: 3px;
+  box-shadow: 0 3px 5px 2px rgba(0, 0, 0, .5);
+  color: white;
+}
+#teacher-card{
+  // width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+#container{
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+#input{
+  line-height: 35px;
 }

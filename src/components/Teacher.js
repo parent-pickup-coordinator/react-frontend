@@ -123,7 +123,7 @@ const TeacherPage = (props) => {
       <Card id="teacher-card" >
         <form onSubmit={classList}>
 
-          <input class="input-teacher" onChange={searchName} type='text' ref={teacherNameRef} placeholder="Teacher Name" />
+          <input id="input" class="input-teacher" onChange={searchName} type='text' ref={teacherNameRef} placeholder="Teacher Name" />
           <Button className={classes.margin} type='submit' size="large">Submit</Button>
         </form>
 
@@ -132,7 +132,7 @@ const TeacherPage = (props) => {
             {pickupReadyStudents.map((student, idx) => (
               <div key={idx}>
                 <Chip
-
+                  id="chip"
                   onClick={() => studentReleased(student)}
                   variant="outlined"
                   size="medium"
@@ -149,7 +149,7 @@ const TeacherPage = (props) => {
             {inClassStudents.map((student, idx) => (
               <div key={idx}>
                 <Chip
-
+                  id="chip"
                   onClick={() => studentReleased(student)}
                   variant="outlined"
                   size="medium"
@@ -166,7 +166,7 @@ const TeacherPage = (props) => {
             {releasedFromClassStudents.map((student, idx) => (
               <div key={idx}>
                 <Chip
-
+                  id="chip"
                   onClick={() => studentReleased(student)}
                   variant="outlined"
                   size="medium"
@@ -212,12 +212,13 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .5)',
     color: 'white',
     height: 45,
-    padding: '30px',
+    padding: '20px',
     margin: theme.spacing(2),
   },
   chip: {
     margin: theme.spacing(1.0),
     padding: theme.spacing(0.5),
+    // width: '50px',
   },
 }));
 
