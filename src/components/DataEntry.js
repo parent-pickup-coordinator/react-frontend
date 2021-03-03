@@ -104,6 +104,8 @@ const DataEntry = (props) => {
     let studentSchool = studentSchoolRef.current.value;
     let studentSiblings = studentSiblingsRef.current.value;
 
+
+    //Dina's proxy: https://dina-cors-anywhere.herokuapp.com/
     await superagent.post('https://parent-pickup-coordinator.herokuapp.com/student/')
       .send({
         "name": studentName,
