@@ -105,6 +105,7 @@ const DataEntry = (props) => {
     let studentSiblings = studentSiblingsRef.current.value;
 
     await superagent.post('https://parent-pickup-coordinator.herokuapp.com/student/')
+      .set('Content-Type', 'application/json')
       .send({
         "name": studentName,
         "studentID": studentID,
