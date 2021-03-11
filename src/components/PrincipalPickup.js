@@ -21,7 +21,7 @@ const PrincipalPickupPage = (props) => {
   
   const [chosenChild, setChosenChild] = useState({});
   const pickupIdRef = React.createRef();
-
+  const pickupNameRef = React.createRef();
   // const host = io.connect('https://parent-pickup-coordinator.herokuapp.com/', { transports: ['websocket'] }); //USE THIS ONE FOR DEPLOYMENT
   const host = io.connect('https://socket-server-ppc.herokuapp.com/', { transports: ['websocket'] }); //USE THIS ONE FOR TESTING
 
@@ -34,11 +34,11 @@ const PrincipalPickupPage = (props) => {
     e.preventDefault();
     const pickupId = pickupIdRef.current.value;
     // const pickupId = e.target.studentNum.value;
-    console.log('ID: ', pickupId);
+
     let chosenStudent = props.allStudents.filter((child) => {
       if (child.studentID === parseInt(pickupId)) return child;
     })
-    console.log('CHOSENT Student: ', chosenStudent);
+ 
     chosenStudent[0].studentStatus = 'pickupReady';
     setChosenChild(chosenStudent[0]);
     let tempArray = pickupReadyStudents;
@@ -49,7 +49,22 @@ const PrincipalPickupPage = (props) => {
     
     // e.target.reset(); THIS WILL BREAK IT DO NOT USE!!!!!!!!!!!!!!!!!!!
   }
-
+const pickUpStudentByName = (e) => {
+  e.preventDefault();
+  const pickupId = pickupNameRef.current.value;
+  console.log('All Students: -----', props.allStudents);
+  let chosenStudent = props.allStudents.filter((child) => {
+    console.log('Line 57 child', child);
+    if (child.name === pickupId) return child;
+  })
+  console.log('Chosen Student: ----', chosenStudent);
+  chosenStudent[0].studentStatus = 'pickupReady';
+  setChosenChild(chosenStudent[0]);
+  let tempArray = pickupReadyStudents;
+  tempArray.unshift(chosenStudent[0])
+  setPickupReadyStudents(tempArray);
+  props.updateStatus(pickupId, 'classRoom')
+}
 
   
   useEffect (()=> {
@@ -136,8 +151,15 @@ const PrincipalPickupPage = (props) => {
 
       <form onSubmit={pickUpStudent}>
          <input type='text' ref={pickupIdRef} placeholder="Enter Student ID #" style={{marginLeft: 13}}/>
-        <Button className={classes.root} type='submit'>Find Student</Button>
+        <Button className={classes.root} type='submit'>Search By ID #</Button>
       </form>
+
+      <form onSubmit={pickUpStudentByName}>
+         <input type='text' ref={pickupNameRef} placeholder="Enter Student Name" style={{marginLeft: 13}}/>
+        <Button className={classes.root} type='submit'>Search By Name</Button>
+      </form>
+
+      
 
         {/* <form onSubmit={pickUpStudent}>
           <TextField
