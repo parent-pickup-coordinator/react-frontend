@@ -18,10 +18,13 @@ const PrincipalPickupPage = (props) => {
   const [pickupReadyStudents, setPickupReadyStudents] = useState([]);
   const [releasedFromClassStudents, setReleasedFromClassStudents] = useState([]);
   const [waitingStudents, setWaitingStudents] = useState([]);
-  
   const [chosenChild, setChosenChild] = useState({});
+  const [chosenBusStudents, setChosenBusStudents] = useState([]);
+
   const pickupIdRef = React.createRef();
   const pickupNameRef = React.createRef();
+  const pickupBusRef = React.createRef();
+
   // const host = io.connect('https://parent-pickup-coordinator.herokuapp.com/', { transports: ['websocket'] }); //USE THIS ONE FOR DEPLOYMENT
   const host = io.connect('https://socket-server-ppc.herokuapp.com/', { transports: ['websocket'] }); //USE THIS ONE FOR TESTING
 
@@ -52,7 +55,7 @@ const PrincipalPickupPage = (props) => {
 const pickUpStudentByName = (e) => {
   e.preventDefault();
   const pickupId = pickupNameRef.current.value;
-  console.log('All Students: -----', props.allStudents);
+  //console.log('All Students: -----', props.allStudents);
   let chosenStudent = props.allStudents.filter((child) => {
     console.log('Line 57 child', child);
     if (child.name === pickupId) return child;
@@ -66,6 +69,18 @@ const pickUpStudentByName = (e) => {
   props.updateStatus(pickupId, 'classRoom')
 }
 
+const pickUpStudentByBus = (e) => {
+  e.preventDefault();
+const pickupId = pickupBusRef.current.value;
+let busStudent = props.allStudents.filter((child) => {
+  if(child.busRoute === pickupId) return child;
+})
+let chosenStudent = busStudent.forEach((child) => {
+  child.studentStatus = 'pickupReady';
+  setChosenBusStudents(chosenStudent);
+}) // TODO: Add chosenBusStudent (new piece of state) into useEffect 
+// Do this because it is for full array not just one object 03/11/2021 - Tina & Stacy 
+}
   
   useEffect (()=> {
     console.log('PRINCIPALPICKUP useEffect: before ', {waitingStudents});
@@ -159,7 +174,10 @@ const pickUpStudentByName = (e) => {
         <Button className={classes.root} type='submit'>Search By Name</Button>
       </form>
 
-      
+      <form onSubmit={pickUpStudentByBus}>
+         <input type='text' ref={pickupBusRef} placeholder="Enter Bus Route" style={{marginLeft: 13}}/>
+        <Button className={classes.root} type='submit'>Search By Bus</Button>
+      </form>
 
         {/* <form onSubmit={pickUpStudent}>
           <TextField
