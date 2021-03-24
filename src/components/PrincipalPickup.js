@@ -192,9 +192,9 @@ let chosenStudent = busStudent.forEach((child) => {
           <Button className={classes.root} type='submit'>Find Student</Button>
         </form> */}
         
-         <div>
+         <div id="chipcontainer">
           {waitingStudents.map((student, idx) => (
-            <div key={idx}>
+            <div id="chipchild" key={idx}>
               <Chip
                 onClick={() => sendStudent(student)}
                 variant="outlined"
@@ -209,9 +209,9 @@ let chosenStudent = busStudent.forEach((child) => {
           ))}
         </div>
         
-          <div>
+          <div id="chipcontainer">
             {pickupReadyStudents.map((student, idx) => (
-              <div key={idx}>
+              <div id="chipchild" key={idx}>
                 <Chip
                   onClick={() => sendStudent(student)}
                   variant="outlined"
@@ -225,9 +225,9 @@ let chosenStudent = busStudent.forEach((child) => {
               </div>
             ))}
           </div>
-          <div>
+          <div id="chipcontainer">
             {releasedFromClassStudents.map((student, idx) => (
-              <div key={idx}>
+              <div id="chipchild" key={idx}>
                 <Chip
                   onClick={() => sendStudent(student)}
                   variant="outlined"

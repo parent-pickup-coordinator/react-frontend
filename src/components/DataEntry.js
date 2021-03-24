@@ -212,25 +212,25 @@ const DataEntry = (props) => {
   }
   const classes = useStyles();
   return (
-    <div>
+    <div class="div">
       <h1>Update Student</h1>
       {/* <Button onClick={getAll}>Get All Students</Button> */}
       <Card>
         <form>
-          <div id="buttons">
-            <div>
+          <div class="div" id="buttons">
+            <div class="div">
               <input id="dataStuff" type='text' ref={pickupIdRef} placeholder="Enter Student ID #" />
             </div>
-            <div>
+            <div class="div" >
               <Button id="dataStuff" className={classes.root} onClick={retrieve} type='button'>Retrieve Student Record</Button>
             </div>
-            <div>
+            <div class="div" >
               <Button id="dataStuff" className={classes.root} onClick={add} type='button'>Add Student Record</Button>
             </div>
-            <div>
+            <div class="div" >
               <Button id="dataStuff" className={classes.root} onClick={update} type='button'>Update Student Record</Button>
             </div>
-            <div>
+            <div class="div" >
               <Button id="dataStuff" className={classes.root} onClick={deleteChosen} type='button'>Delete Student Record</Button>
             </div>
           </div>
@@ -279,7 +279,7 @@ const DataEntry = (props) => {
               <Form.Label>Siblings(Enter Sibling ID#)</Form.Label>
               <Form.Control defaultValue={chosenChild.siblings} type="text" name="siblings" disabled="disabled"></Form.Control>
             </Form.Group>
-            <Button onClick={() => setRetrieveStudentForm(false)} variant="primary" type="submit">Close Detail View</Button>
+            <Button id="dataStuff" className={classes.root} onClick={() => setRetrieveStudentForm(false)} type="submit">Close Detail View</Button>
           </Form>
         }
 
@@ -325,8 +325,8 @@ const DataEntry = (props) => {
               <Form.Label>Siblings(Enter Sibling ID#)</Form.Label>
               <Form.Control defaultValue={chosenChild.siblings} type="text" name="siblings" ref={studentSiblingsRef}></Form.Control>
             </Form.Group>
-            <Button onClick={() => setAddStudentForm(false)} variant="primary" type="button">Cancel</Button>
-            <Button onClick={addStudentRecord} variant="primary" type="button">Add Student</Button>
+            <Button onClick={() => setAddStudentForm(false)} id="dataStuff" className={classes.root} type="button">Cancel</Button>
+            <Button onClick={addStudentRecord} id="dataStuff" className={classes.root} type="button">Add Student</Button>
           </Form>
         }
 
@@ -372,8 +372,8 @@ const DataEntry = (props) => {
               <Form.Label>Siblings(Enter Sibling ID#)</Form.Label>
               <Form.Control defaultValue={chosenChild.siblings} type="text" name="siblings" ref={studentSiblingsRef}></Form.Control>
             </Form.Group>
-            <Button onClick={() => setUpdateStudentForm(false)} variant="primary" type="button">Cancel</Button>
-            <Button onClick={updateStudentRecord} variant="primary" type="button">Update Student</Button>
+            <Button onClick={() => setUpdateStudentForm(false)} id="dataStuff" className={classes.root} type="button">Cancel</Button>
+            <Button onClick={updateStudentRecord} id="dataStuff" className={classes.root} type="button">Update Student</Button>
           </Form>
         }
 
@@ -419,8 +419,8 @@ const DataEntry = (props) => {
               <Form.Label>Siblings(Enter Sibling ID#)</Form.Label>
               <Form.Control defaultValue={chosenChild.siblings} type="text" name="siblings" disabled="disabled"></Form.Control>
             </Form.Group>
-            <Button onClick={() => setDeleteStudentForm(false)} variant="primary" type="submit">Cancel</Button>
-            <Button onClick={() => deleteStudent(chosenChild)} variant="primary" type="submit">Delete Record</Button>
+            <Button onClick={() => setDeleteStudentForm(false)} id="dataStuff" className={classes.root} type="submit">Cancel</Button>
+            <Button onClick={() => deleteStudent(chosenChild)} id="dataStuff" className={classes.root} type="submit">Delete Record</Button>
           </Form>
         }
         {/* <Button onClick={addOneStudent}>Add New Student</Button> */}
@@ -439,7 +439,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 3,
     boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .5)',
     color: 'white',
-    height: 40,
+    // height: 40,
     padding: '10px',
     margin: theme.spacing(1),
   },
