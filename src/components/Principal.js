@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 // import { withRouter } from 'react-router-dom';
 import superagent from 'superagent';
 // import io from 'socket.io-client';
 import { connect } from 'react-redux';
 import { populateStudents } from '../store/students-reducer.js';
 // import Chip from '@material-ui/core/Chip';
-import Card from '@material-ui/core/Card';
+// import Card from '@material-ui/core/Card';
 // import { makeStyles } from '@material-ui/core/styles';
 
 const mapDispatchToProps = { populateStudents };
@@ -14,6 +14,9 @@ const mapDispatchToProps = { populateStudents };
 const PrincipalPage = (props) => {
 
   const dataEntryHandler = async () => {
+    //TODO: remove ability to get into data entry from this page
+    //TODO: rename "principal" to "monitor"
+    //TODO: add "admin" page that allows for data entry/deleting students, as well as signing up new staff members/adjusting permissions
     console.log('going to data entry');
     let currentStudents = await superagent.get('https://parent-pickup-coordinator.herokuapp.com/student')
       .then(response => {
