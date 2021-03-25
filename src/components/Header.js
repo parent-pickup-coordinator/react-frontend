@@ -4,8 +4,8 @@ import { AppBar, Typography, Toolbar, IconButton } from '@material-ui/core';
 
 const Header = () => {
   return (
-    <>
-      <AppBar position="static">
+    <div id="header">
+      <AppBar>
         <Toolbar>
           <IconButton edge="start" color="inherit" aria-label="menu">
           </IconButton>
@@ -14,7 +14,7 @@ const Header = () => {
           </Typography>
         </Toolbar>
       </AppBar>
-    </>
+    </div>
   )
 }
 export default Header;
